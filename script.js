@@ -10,7 +10,15 @@ function convertToRoman(num) {
     };
 
   //your code here
+	 for (let i = 0; i < values.length; i++) {
+    while (num >= values[i]) {
+      result += numerals[i]; // add the Roman numeral
+      num -= values[i];      // subtract the value
+    }
+  }
 
+  return result;
+}
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
