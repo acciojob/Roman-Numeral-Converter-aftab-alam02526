@@ -17,15 +17,18 @@ function convertToRoman(num) {
 
   let result = "";
 
-  for (let [symbol, value] of romanMap) {
-    while (num >= value) {
-      result += symbol;
-      num -= value;
+  let result = "";
+  for (const [symbol, value] of romanMap) {
+    const count = Math.floor(num / value);
+    if (count > 0) {
+      result += symbol.repeat(count);
+      num -= value * count;
     }
   }
-
   return result;
 }
+
+module.exports = convertToRoman;
 
 // Example test
 // console.log(convertToRoman(36)); // XXXVI
